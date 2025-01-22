@@ -8,10 +8,8 @@ const PlayerRanking = () => {
   const [sortOrder, setSortOrder] = useState('desc');
 
   useEffect(() => {
-    // Obtener los jugadores del backend utilizando la variable de entorno
-    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'; // Usa localhost en desarrollo
-
-    axios.get(`${apiUrl}/players`)
+    // Obtener los jugadores del backend
+    axios.get('http://localhost:5000/api/players')
       .then(response => {
         setPlayers(response.data);
       })

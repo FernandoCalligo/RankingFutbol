@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "./AddMatch.css";
-
+import "./AddMatch.css"
 const AddMatch = () => {
   const [players, setPlayers] = useState([]);
   const [teamA, setTeamA] = useState([]);
@@ -10,19 +9,16 @@ const AddMatch = () => {
   const [mvp, setMvp] = useState('');
   const [message, setMessage] = useState('');
 
-  // Obtener la URL de la API desde las variables de entorno
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-
   useEffect(() => {
     // Obtener los jugadores del backend
-    axios.get(`${apiUrl}/players`)
+    axios.get('http://localhost:5000/api/players')
       .then(response => {
         setPlayers(response.data);
       })
       .catch(error => {
         console.error('Error al cargar los jugadores:', error);
       });
-  }, [apiUrl]);
+  }, []);
 
   // Función para agregar o quitar jugadores de un equipo
   const togglePlayer = (player, team) => {
@@ -46,7 +42,7 @@ const AddMatch = () => {
     };
 
     // Enviar el partido al backend
-    axios.post(`${apiUrl}/matches`, match)
+    axios.post('http://localhost:5000/api/matches', match)
       .then(response => {
         setMessage('Partido registrado exitosamente');
         setTeamA([]);
