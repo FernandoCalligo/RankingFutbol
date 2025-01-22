@@ -4,8 +4,15 @@ const fs = require('fs');
 const app = express();
 const PORT = 5000;
 
+// Habilitar CORS para todos los orígenes
+const corsOptions = {
+  origin: '*', // Permite solicitudes desde cualquier origen (o cambia a tu dominio específico)
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions)); // Usar CORS con las opciones configuradas
 app.use(express.json()); // Permite recibir JSON en el cuerpo de las solicitudes
 
 // Leer el archivo de jugadores
@@ -38,61 +45,4 @@ const saveMatches = (matches) => {
 // Rutas
 
 // Obtener jugadores
-app.get('/api/players', (req, res) => {
-  const players = getPlayers();
-  res.json(players);
-});
-
-// Obtener partidos
-app.get('/api/matches', (req, res) => {
-  const matches = getMatches();
-  res.json(matches);
-});
-
-// Registrar un nuevo partido
-app.post('/api/matches', (req, res) => {
-    const match = req.body;
-    const { players, winner, mvp } = match;
-  
-    console.log('Datos del partido recibidos:', match);
-  
-    // Obtener los jugadores actuales
-    let playersData = getPlayers();
-  
-    // Actualizar los jugadores
-    playersData = playersData.map(player => {
-      if (players.includes(player.name)) {
-        player.gamesPlayed += 1;
-      }
-      if (winner.includes(player.name)) {
-        player.gamesWon += 1;
-      }
-      if (mvp === player.name) {
-        player.mvps += 1;
-      }
-      return player;
-    });
-  
-    // Guardar los jugadores actualizados
-    savePlayers(playersData);
-  
-    // Leer los partidos existentes
-    let matches = getMatches();
-  
-    // Agregar el nuevo partido
-    matches.push(match);
-    console.log('Partidos después de agregar el nuevo:', matches);  // Verifica que el partido se haya agregado
-  
-    // Guardar los partidos actualizados
-    saveMatches(matches);
-  
-    res.status(201).json({ message: 'Partido registrado exitosamente', match });
-  });
-
-
-  // Guardar los partidos en el archivo matches.json
-
-// Iniciar el servidor
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+app.get('/api
