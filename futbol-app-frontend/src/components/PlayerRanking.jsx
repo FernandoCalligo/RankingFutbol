@@ -35,34 +35,43 @@ const PlayerRanking = () => {
 
   return (
     <div className="ranking-container">
+    <h1>Viva Links</h1>
       <h2>Ranking de Jugadores</h2>
       <table className="ranking-table">
-        <thead>
-          <tr>
-            <th onClick={() => sortPlayers('name')}>
-              Jugador {sortBy === 'name' && (sortOrder === 'asc' ? '↑' : '↓')}
-            </th>
-            <th onClick={() => sortPlayers('gamesPlayed')}>
-              Partidos Jugados {sortBy === 'gamesPlayed' && (sortOrder === 'asc' ? '↑' : '↓')}
-            </th>
-            <th onClick={() => sortPlayers('gamesWon')}>
-              Partidos Ganados {sortBy === 'gamesWon' && (sortOrder === 'asc' ? '↑' : '↓')}
-            </th>
-            <th onClick={() => sortPlayers('mvps')}>
-              MVPs {sortBy === 'mvps' && (sortOrder === 'asc' ? '↑' : '↓')}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {players.map(player => (
-            <tr key={player.name}>
-              <td>{player.name}</td>
-              <td>{player.gamesPlayed}</td>
-              <td>{player.gamesWon}</td>
-              <td>{player.mvps}</td>
-            </tr>
-          ))}
-        </tbody>
+      <thead>
+  <tr>
+    <th onClick={() => sortPlayers('name')}>
+      Jugador {sortBy === 'name' && (sortOrder === 'asc' ? '↑' : '↓')}
+    </th>
+    <th onClick={() => sortPlayers('gamesPlayed')}>
+      Partidos Jugados {sortBy === 'gamesPlayed' && (sortOrder === 'asc' ? '↑' : '↓')}
+    </th>
+    <th onClick={() => sortPlayers('gamesWon')}>
+      Partidos Ganados {sortBy === 'gamesWon' && (sortOrder === 'asc' ? '↑' : '↓')}
+    </th>
+    <th onClick={() => sortPlayers('mvps')}>
+      MVPs {sortBy === 'mvps' && (sortOrder === 'asc' ? '↑' : '↓')}
+    </th>
+    <th>
+      % Victorias
+    </th>
+  </tr>
+</thead>
+<tbody>
+  {players.map(player => {
+    // Calcular porcentaje de victorias
+    const winPercentage = player.gamesPlayed === 0 ? 0 : (player.gamesWon / player.gamesPlayed) * 100;
+    return (
+      <tr key={player.name}>
+        <td>{player.name}</td>
+        <td>{player.gamesPlayed}</td>
+        <td>{player.gamesWon}</td>
+        <td>{player.mvps}</td>
+        <td>{winPercentage.toFixed(2)}%</td> {/* Muestra el porcentaje con dos decimales */}
+      </tr>
+    );
+  })}
+</tbody>
       </table>
     </div>
   );
