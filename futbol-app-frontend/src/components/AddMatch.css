@@ -1,0 +1,82 @@
+
+.add-match-container {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  .teams-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    max-width: 1280px;
+    gap: 16px;
+  }
+
+ 
+  .player-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 200px;
+  }
+  
+  .player-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .player-btn.selected {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .winner-mvp {
+    margin-top: 20px;
+  }
+  
+  .winner-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .winner-btn.selected {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  select {
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .message {
+    color: red;
+    margin-top: 20px;
+  }
+  

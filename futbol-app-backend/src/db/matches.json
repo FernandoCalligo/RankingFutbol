@@ -1,0 +1,68 @@
+[
+  {
+    "players": [
+      "Nando",
+      "Peke",
+      "Tati",
+      "Topa",
+      "Frighe",
+      "Eze",
+      "Fate",
+      "Facu",
+      "Wolfer",
+      "Laure"
+    ],
+    "winner": [
+      "Nando",
+      "Peke",
+      "Tati",
+      "Topa",
+      "Frighe"
+    ],
+    "mvp": "Nando"
+  },
+  {
+    "players": [
+      "Pedro",
+      "Fate",
+      "Topa",
+      "Tati",
+      "Wolfer",
+      "Nando",
+      "Rayo",
+      "Frighe",
+      "Laure",
+      "Peke"
+    ],
+    "winner": [
+      "Nando",
+      "Rayo",
+      "Frighe",
+      "Laure",
+      "Peke"
+    ],
+    "mvp": "Rayo"
+  },
+  {
+    "players": [
+      "Nando",
+      "Peke",
+      "Tati",
+      "Topa",
+      "Frighe",
+      "Pedro",
+      "Rayo",
+      "Laure",
+      "Wolfer",
+      "Facu"
+    ],
+    "winner": [
+      "Nando",
+      "Peke",
+      "Tati",
+      "Topa",
+      "Frighe"
+    ],
+    "mvp": "Topa"
+  }
+]
